@@ -1,0 +1,95 @@
+body{
+    background: grey;
+    margin:0;
+}
+
+#app-container{
+    width: 100%;
+    overflow: hidden;
+}
+
+#app-header{
+    width: 100%;
+    height: 10vh;
+    /*El vh toma el 10 % del tamaño de la pantalla*/
+    position: fixed;
+    background-color: #2ecc71;
+    text-align: center;
+}
+
+#app-header h1{
+    line-height: 10vh;
+    margin: 0;
+    color: white;
+}
+
+#app-header h1.danger{
+    color: red;
+}
+
+#app-body{
+    padding-top: 15vh;
+    width: 80%;
+    margin: 0 auto;
+    min-height: 75vh;
+}
+
+#app-footer{
+    width: 100%;
+    min-height: 10vh;
+}
+
+#app-footer p{
+    margin: 0 auto;
+    width: 40%;
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid #7f8c8d;
+}
+
+.tv-show{
+    width: 100%;
+    overflow: hidden;
+    padding: 16px;
+    background-color: white;
+    margin-bottom: 16px;
+    display: flex;
+}
+
+
+.tv-show:hover{
+    background-color: #ecf0f1;
+}
+
+.tv-show h1{
+    margin: 20px;
+}
+
+.tv-show img{
+
+    max-height: 100%;
+}
+
+.tv-show .info{
+    padding-left: 20px;
+
+
+}
+
+.left{
+    float: left;
+}
+
+#app-body .search-form{
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 22px;
+}
+
+#app-body .search-form input[type="text"]{
+    padding: 12px 16px;
+    border-radius: 6px;
+    width: 300px;
+}
