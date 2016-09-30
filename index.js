@@ -36,11 +36,32 @@ $(function () {
         alert("Se ha buscado: " + busqueda);
     });
 
-    var template
+    var template= '<article class="tv-show">' +
+        '<div class="left">' +
+        '<img src=":img:" alt=":img alt:">' +
+        '</div>' +
+        '<div class="left info">' +
+        '<h1>:name:</h1>' +
+        '<p>:summary:</p>' +
+        '</div>' +
+        ' </article>';
 
     $.ajax('http://api.tvmaze.com/shows', {
-        success: function (data, textStatus, xhr) {
-            console.log(data);
+        success: function (shows, textStatus, xhr) {
+            var $tvShowsContainer=$("#app-body").find('.tv-shows')
+            shows.forEach(function(show){
+                var article=template
+                    .replace(":name:", show.name)
+                    .replace(":img:", show.image.medium)
+                    .replace(":summary:", show.summary)
+                    .replace(":img alt:", show.name + "Logo")
+
+
+                $tvShowsContainer.append($(article))
+
+            })
+
+
         }
     })
 
