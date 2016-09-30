@@ -14,17 +14,34 @@
 // });
 
 $(function () {
-//     var $h1=$('h1');
-//
-// $h1.addClass('danger');
-//
-//     setTimeout(function () {
-//         $h1.removeClass("danger")
-//     }, 1500)
-//
-//     $h1.css({
-//         'font-size': '70px'
-//     })
+
+    var $tvShowsContainer=$("#app-body").find('.tv-shows');
+
+    function  renderShows(shows) {
+        shows.forEach(function(show) {
+            var article = template
+                .replace(":name:", show.name)
+                .replace(":img:", show.image.medium)
+                .replace(":summary:", show.summary)
+                .replace(":img alt:", show.name + "Logo");
+
+            var $article = $(article)
+            $article.hide();
+            $tvShowsContainer.append($article.show())
+        })
+    }
+
+    var $h1=$('h1');
+
+$h1.addClass('danger');
+
+    setTimeout(function () {
+        $h1.removeClass("danger")
+    }, 1500)
+
+    $h1.css({
+        'font-size': '70px'
+    })
 
     // Submit search form
 
@@ -33,7 +50,21 @@ $(function () {
         var busqueda=$(this)
             .find('input[type="text"]')
             .val();
-        alert("Se ha buscado: " + busqueda);
+        $.ajax({
+            url: 'http://api.tvmaze.com/search/shows?q=girls',
+            data: {q: busqueda},
+            success: function (res, textStatus, xhr) {
+                $tvShowsContainer.find('.tv-show').remove()
+                renderShows(shows);
+                var shows = res.map(function (el) {
+                    return el.show;
+                }).forEach(function (show) {
+                    
+                })
+            }
+            
+        })
+
     });
 
     var template= '<article class="tv-show">' +
@@ -48,24 +79,13 @@ $(function () {
 
     $.ajax('http://api.tvmaze.com/shows', {
         success: function (shows, textStatus, xhr) {
-            var $tvShowsContainer=$("#app-body").find('.tv-shows')
-            shows.forEach(function(show){
-                var article=template
-                    .replace(":name:", show.name)
-                    .replace(":img:", show.image.medium)
-                    .replace(":summary:", show.summary)
-                    .replace(":img alt:", show.name + "Logo")
 
-
-                $tvShowsContainer.append($(article))
-
-            })
-
-
+            $tvShowsContainer.find('.loader').remove();
+            renderShows(shows);
         }
     })
 
-})
+});
 
 
     // Otra manera de hacer selectores en JQuery--Es lo mismo q la parte de arriba
