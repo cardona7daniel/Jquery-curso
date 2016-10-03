@@ -3,6 +3,7 @@ $(function() {
 
   $tvShowsContainer.on('click', 'button.like', function (ev) {
     var $this = $(this);
+
     $this.closest('.tv-show').toggleClass('liked')
   })
 
@@ -56,7 +57,7 @@ $(function() {
           '<div class="right info">' +
             '<h1>:name:</h1>' +
             '<p>:summary:</p>' +
-            '<button class="like">💖</button>'
+            '<button class="like">a</button>'+
           '</div>' +
         '</article>';
 

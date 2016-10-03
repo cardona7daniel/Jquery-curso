@@ -62,11 +62,11 @@ body {
 }
 
 .tv-show.liked {
-  background-color: #E08283;
+  background-color: #8ee06e;
 }
 
 .tv-show.liked:hover {
-  background-color: #F1A9A0;
+  background-color: #5ff13e;
 }
 
 .tv-show button.like {
@@ -76,8 +76,10 @@ body {
   position: absolute;
   top: 10px;
   right: 10px;
-  font-size: 22px;
+  /*font-size: 22px;*/
   cursor: pointer;
+  width: 32px;
+  height: 32px;
   transition: all 1s ease;
 }
 
