@@ -1,6 +1,6 @@
 // Module dependencies
 
-var $ = require('jquery');
+import $ from 'jquery';
 
 
 $(function() {
@@ -62,7 +62,7 @@ $(function() {
           '<div class="right info">' +
             '<h1>:name:</h1>' +
             '<p>:summary:</p>' +
-            '<button class="like">a</button>'+
+            '<button class="like">0</button>'+
           '</div>' +
         '</article>';
 

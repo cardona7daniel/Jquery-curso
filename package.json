@@ -4,7 +4,11 @@
   "description": "Una web app para seleccionar tus series favotitas",
   "main": "index.js",
   "scripts": {
-    "build-js": "browserify index.js > app.js"
+    "build-js": "browserify -t [ babelify --presets [ es2015 ] ] index.js > public/app.js",
+    "public": "mkdir public",
+    "copy-files": "copy index.css public/app.css & copy index.html public/app.html",
+    "build": "npm run public & npm run build-js & npm run copy-files",
+    "serve": "serve public"
   },
   "repository": {
     "type": "git",
@@ -22,7 +26,8 @@
   },
   "homepage": "https://github.com/cardona7daniel/Jquery-curso#readme",
   "dependencies": {
-    "jquery": "^3.1.1"
+    "jquery": "^3.1.1",
+    "serve": "^1.4.0"
   },
   "devDependencies": {
     "babel-preset-es2015": "^6.16.0",
