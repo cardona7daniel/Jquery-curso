@@ -1,3 +1,8 @@
+// Module dependencies
+
+var $ = require('jquery');
+
+
 $(function() {
   var $tvShowsContainer = $('#app-body').find('.tv-shows');
 
